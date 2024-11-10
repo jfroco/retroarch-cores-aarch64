@@ -40,9 +40,18 @@ CC=aarch64-linux-gnu-gcc CXX=aarch64-linux-gnu-g++ make -j4
 aarch64-linux-gnu-strip fuse_libretro.so
 ```
 
-8. Copy the new core (.so file) to the appropriate folder. In the case of Knulli Batocera:
+8. Copy the new core (.so file) to the appropriate folder. In the case of Knulli Batocera, copy it to the SD card in this folder:"
 ```
-/usr/lib/libretro/fuse_libretro.so
+/usr/lib/libretro/
+```
+
+Now, continue on your device:
+
+9. Test the core
+
+10. Save it permanently using the command line (SSH or similar) on your device:
+```
+batocera-save-overlay
 ```
 
 
