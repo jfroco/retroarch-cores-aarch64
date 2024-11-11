@@ -30,9 +30,9 @@ cd fuse-libretro
 make clean
 ```
 
-6. Compile the core (4 is the number of CPU procs used by the compiler)
+6. Compile the core
 ```
-CC=aarch64-linux-gnu-gcc CXX=aarch64-linux-gnu-g++ make -j4
+CC=aarch64-linux-gnu-gcc CXX=aarch64-linux-gnu-g++ make -j$(nproc) 
 ```
 
 7. Strip the core
