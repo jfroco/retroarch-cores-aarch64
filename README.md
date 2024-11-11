@@ -16,7 +16,7 @@ sudo apt -y update
 
 4. Install needed packages (*)
 ```
-sudo apt -y install build-essential git libarchive-zip-perl rsync zip python3 python3-pip python3-setuptools python3-wheel ninja-build libopenal-dev premake4 autoconf gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf
+sudo apt -y install build-essential git libarchive-zip-perl rsync zip python3 python3-pip python3-setuptools python3-wheel ninja-build libopenal-dev premake4 autoconf gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf g++-aarch64-linux-gnu
 ```
 
 5. Clone your libretro core (e.g., fuse-libretro)
@@ -55,4 +55,4 @@ batocera-save-overlay
 ```
 
 
-(*) Packages recommended by https://github.com/christianhaitian/retroarch-cores
+(*) Packages recommended by https://github.com/christianhaitian/retroarch-cores plus g++-aarch64-linux-gnu
