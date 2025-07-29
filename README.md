@@ -41,7 +41,7 @@ CC=aarch64-linux-gnu-gcc CXX=aarch64-linux-gnu-g++ make -j$(nproc)
 aarch64-linux-gnu-strip fuse_libretro.so
 ```
 
-8. Copy the new core (.so file) to the appropriate folder. In the case of Knulli Batocera, copy it to the SD card in this folder:"
+8. Copy the new core (.so file) to the appropriate folder. In the case of Knulli Batocera, copy it to the SD card in this folder:
 ```
 /usr/lib/libretro/
 ```
@@ -55,6 +55,59 @@ Now, continue on your device:
 batocera-save-overlay
 ```
 
+# New cores
+
+If you want to add a new core, you will need to do these steps:
+
+1. Copy the new core (.so file) to the appropriate folder. In the case of Knulli Batocera, copy it to the SD card in this folder:
+```
+/usr/lib/libretro/
+```
+Example: /usr/lib/libretro/genesisplusgx-paprius_libretro.so 
+
+2.- Copy the .info file associated to the core to the appropriate folder. In the case of Knulli Batocera, copy it to the SD card in this folder:
+```
+/usr/share/libretro/info/
+```
+Example: /usr/share/libretro/info/genesisplusgx-paprium_libretro.info
+
+3.- Edit the EmulationStation configuration to add the new core:
+File:
+```
+/usr/share/emulationstation/es_systems.cfg
+```
+
+Example:
+```
+  <system>
+        <fullname>Mega Drive</fullname>
+        <name>megadrive</name>
+        <manufacturer>Sega</manufacturer>
+        <release>1988</release>
+        <hardware>console</hardware>
+        <path>/userdata/roms/megadrive</path>
+        <extension>.bin .gen .md .sg .smd .zip .7z</extension>
+        <command>emulatorlauncher %CONTROLLERSCONFIG% -system %SYSTEM% -rom %ROM% -gameinfoxml %GAMEINFOXML% -systemname %SYSTEMNAME%</command>
+        <platform>genesis, megadrive</platform>
+        <theme>megadrive</theme>
+        <group>megadrive</group>
+        <emulators>
+            <emulator name="libretro">
+                <cores>
+                    <core default="true">genesisplusgx</core>
+                    <core>genesisplusgx-wide</core>
+                    <core>genesisplusgx-paprium</core>
+                    <core>picodrive</core>
+                </cores>
+            </emulator>
+        </emulators>
+  </system>
+```
+4.- Save changes
+```
+batocera-save-overlay
+```
+You may need to restart EmulationStation or reboot the system.
 
 
 # Packages precompiled
